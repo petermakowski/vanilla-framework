@@ -12,10 +12,6 @@ function toggleMenu(element, show, top) {
     element.setAttribute('aria-expanded', show);
     target.setAttribute('aria-hidden', !show);
 
-    if (typeof top !== 'undefined') {
-      target.style.top = top + 'px';
-    }
-
     if (show) {
       target.focus();
     }
@@ -36,6 +32,7 @@ function setupContextualMenu(menu) {
     var menuAlreadyOpen = toggle.getAttribute('aria-expanded') === 'true';
 
     var top = toggle.offsetHeight;
+    console.log(top);
     // for inline elements leave some space between text and menu
     if (window.getComputedStyle(toggle).display === 'inline') {
       top += 5;
